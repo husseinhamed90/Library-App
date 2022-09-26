@@ -6,6 +6,7 @@ import '../../../Bookmark/presentation/pages/Bookmark.dart';
 import '../../../Profile/presentation/pages/ProfilePage.dart';
 import '../../../Search/presentation/pages/Search/Search.dart';
 import 'ExplorePage.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,7 +16,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    initialization();
+  }
 
+  void initialization() async {
+    await Future.delayed(const Duration(seconds: 1));
+    FlutterNativeSplash.remove();
+  }
   int _selectedIndex = 0;
   static  final List<Widget> pages = <Widget>[
     const ExplorePage(),
